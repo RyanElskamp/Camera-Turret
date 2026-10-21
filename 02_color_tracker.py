@@ -31,7 +31,7 @@ def nothing(_):
 
 
 def main():
-    cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)                # use 1 for the USB webcam if needed
+    cap = cv2.VideoCapture(1)                # use 1 for the USB webcam if needed
     if not cap.isOpened():
         print("Could not open the camera.")
         return
