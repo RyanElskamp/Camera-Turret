@@ -7,7 +7,7 @@ import cv2
 # wrong camera shows up, try 1 or 2 instead.
 # cv2.CAP_DSHOW makes the camera start faster on Windows.
 CAMERA_INDEX = 0
-cap = cv2.VideoCapture(CAMERA_INDEX, cv2.CAP_DSHOW)
+cap = cv2.VideoCapture(1)
 
 if not cap.isOpened():
     print("Could not open the camera. Try a different CAMERA_INDEX.")
