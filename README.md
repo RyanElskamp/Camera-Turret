@@ -1,70 +1,14 @@
-# Camera-Turret# \# camera-turret
+# Camera Tracking Turret
 
-# 
+A two-axis pan-tilt turret that follows a blue ball. A Logitech C270 webcam feeds
+a Python/OpenCV script that finds the ball by HSV color thresholding and sends
+pan and tilt angles over USB serial (115200 baud) to an Arduino Uno, which drives
+two servos from a separate 5 V supply with a shared ground. Smoothing and a dead
+zone reduce servo jitter.
 
-# A two-axis camera tracking turret. An Arduino Uno drives two servos on a pan-tilt bracket, and Python with OpenCV finds a colored ball in a webcam feed and tells the servos where to point.
+Result: median software processing delay of 1.6 ms (frame capture to servo
+command) over 406 frames. This measures processing time only, not camera
+latency or servo travel time.
 
-# 
-
-# \*\*Status:\*\* in progress (started Oct 2026)
-
-# 
-
-# \## Goal
-
-# Track a moving target and measure the delay from camera frame to servo command.
-
-# 
-
-# \## Hardware
-
-# \- Arduino Uno
-
-# \- Pan-tilt bracket with two micro servos
-
-# \- USB webcam (Logitech C270)
-
-# \- Separate 5 V supply for the servos
-
-# 
-
-# \## Software
-
-# \- Python 3 with OpenCV (`pip install opencv-python numpy`)
-
-# \- Arduino IDE
-
-# 
-
-# \## Progress
-
-# \- \[ ] Webcam feed in OpenCV (`01\\\_webcam\\\_feed.py`)
-
-# \- \[ ] Color detection with adjustable sliders (`02\\\_color\\\_tracker.py`)
-
-# \- \[ ] Servos assembled and wired
-
-# \- \[ ] Arduino sketch to move the servos
-
-# \- \[ ] Python sends angles to the Arduino
-
-# \- \[ ] Turret follows the target
-
-# \- \[ ] Measure the response time
-
-# 
-
-# \## How to run
-
-# ```
-
-# python 01\_webcam\_feed.py
-
-# python 02\_color\_tracker.py
-
-# ```
-
-# Press `q` to quit.
-
-# 
-
+Files: 01_webcam_feed.py, 02_color_tracker.py, 03_keyboard_control.py,
+04_follow.py, and the Arduino sketches in servo_sweep and serial_servo.
