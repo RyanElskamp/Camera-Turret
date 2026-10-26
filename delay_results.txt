@@ -1,0 +1,3 @@
+Commands sent: 406
+Median delay: 1.6 ms
+
